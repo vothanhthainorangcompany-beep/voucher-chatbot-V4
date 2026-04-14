@@ -17,14 +17,12 @@
     "react-dom": "19.2.3"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/nodemailer": "^7.0.11",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "autoprefixer": "^10.4.27",
-    "eslint": "^9.39.4",
     "eslint-config-next": "16.1.6",
     "eslint-plugin-react": "^7.37.5",
     "globals": "^17.4.0",
@@ -33,5 +31,4 @@
     "typescript": "^5",
     "typescript-eslint": "^8.57.2"
   }
-  
 }
