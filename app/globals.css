@@ -35,7 +35,7 @@ textarea {
   font-family: inherit;
 }
 body {
-  font-size: 15px;
+ font-size: 100%;
 }
 @keyframes slideUp {
   from {
@@ -50,4 +50,41 @@ body {
 
 .animate-slideUp {
   animation: slideUp 0.35s ease;
+}
+@media (max-width: 360px) {
+  .chat-bubble {
+    max-width: 90%;
+    font-size: 12.5px;
+    padding: 6px 8px;
+  }
+}
+/* ===== CHAT UI SYSTEM ===== */
+
+.chat-bubble {
+  font-size: 13px;
+  line-height: 1.4;
+  padding: 8px 10px;
+  border-radius: 16px;
+  max-width: 80%;
+}
+
+.chat-inner {
+  padding: 6px 8px;
+  border-radius: 12px;
+}
+
+.chat-title {
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 600;
+}
+
+.chat-text {
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.chat-note {
+  font-size: 12.5px;
+  line-height: 1.4;
 }

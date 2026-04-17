@@ -49,7 +49,7 @@ const RenderMessage = ({ text }: { text: string }) => {
     return <div dangerouslySetInnerHTML={{ __html: text }} />;
   }
   return (
-    <div className="space-y-4 text-[15px] leading-7 text-slate-700">
+    <div className="space-y-2 text-[11px] leading-4 text-slate-700">
       {text.split("\n").map((line, i) => {
         if (!line.trim()) return <div key={i} className="h-2" />;
 
@@ -57,12 +57,7 @@ const RenderMessage = ({ text }: { text: string }) => {
           return (
             <div
               key={i}
-              className="text-[20px]
-    font-semibold
-    text-slate-900
-    leading-6
-    tracking-tight
-  "
+              className="text-[12px] font-semibold text-slate-900 leading-4 tracking-tight"
             >
               {highlightText(line)}
             </div>
@@ -70,7 +65,10 @@ const RenderMessage = ({ text }: { text: string }) => {
         }
         if (line.startsWith("Em sẽ")) {
           return (
-            <div key={i} className="text-[15px] text-slate-600 leading-7">
+            <div
+              key={i}
+              className="text-[11px] font-semibold text-slate-500 leading-4"
+            >
               {highlightText(line)}
             </div>
           );
@@ -82,7 +80,7 @@ const RenderMessage = ({ text }: { text: string }) => {
               className="
         flex items-center gap-2
         mt-3 mb-2
-       text-[16px]
+       text-[12px]
 font-bold
 tracking-wide
         text-pink-600
@@ -100,7 +98,7 @@ tracking-wide
               className="
         flex items-center gap-2
         mt-4 mb-2
-        text-pink-600 font-semibold text-[15px]
+        text-pink-600 font-semibold text-[12px]
       "
             >
               <span>{highlightText(line)}</span>
@@ -117,7 +115,7 @@ tracking-wide
               key={i}
               className="
         flex items-start gap-3
-        p-4 mt-3
+       p-2 mt-1.5
         rounded-xl
         bg-white
         border border-pink-200
@@ -129,18 +127,18 @@ tracking-wide
               {/* NUMBER */}
               <div
                 className="
-          min-w-[28px] h-[28px]
+          min-w-[20px] h-[20px]
           flex items-center justify-center
           rounded-full
           bg-gradient-to-br from-pink-500 to-rose-400
-          text-white text-[14px] font-bold
+          text-white text-[12px] font-bold
         "
               >
                 {number}
               </div>
 
               {/* TEXT */}
-              <div className="text-[15px] text-slate-800 leading-6 font-medium">
+              <div className="text-[11px] text-slate-800 leading-4 font-medium">
                 {highlightText(content)}
               </div>
             </div>
@@ -155,7 +153,7 @@ tracking-wide
               key={i}
               className="
         flex items-start gap-3
-       p-4 mt-3
+       p-2 mt-1.5
         rounded-xl
         bg-white
         border border-pink-200
@@ -171,13 +169,13 @@ tracking-wide
           rounded-full
           bg-pink-100
           text-pink-500
-          text-sm
+          text-[11px]
         "
               >
                 •
               </div>
 
-              <div className="text-[14px] text-slate-800 leading-5">
+              <div className="text-[11px] text-slate-800 leading-4">
                 {highlightText(content)}
               </div>
             </div>
@@ -207,11 +205,11 @@ tracking-wide
               className="
         mt-3
         flex items-center gap-2
-        px-3 py-2
+       px-2.5 py-1.5
         rounded-lg
         bg-blue-50
         border border-blue-200
-        text-blue-700 text-sm
+        text-blue-700 text-[11px]
       "
             >
               ⚡ {line.replace("⚡", "").trim()}
@@ -229,9 +227,9 @@ tracking-wide
         rounded-xl
         bg-orange-50
         border border-orange-300
-        text-[13px]
+        text-[11px]
         text-orange-700
-        leading-5
+        leading-4
       "
             >
               <span className="font-semibold">Lưu ý:</span>{" "}
@@ -777,7 +775,7 @@ export default function VoucherChatbotMVP() {
 
         setEmployeeId(emp);
 
-        await typeMessage("✅ Đã nhận mã nhân viên");
+        await typeMessage("✅ Đã nhận mã nhận viên");
         await typeMessage("👤 Anh/chị ơi, vui lòng cho em xin TÊN mình nhé");
 
         setFlowState("awaiting_name");
@@ -993,7 +991,10 @@ export default function VoucherChatbotMVP() {
     }
     setFlowState("awaiting_life4cut");
     await typeMessage(
-      `👉 Bước 3: Anh/chị bấm vào nút <span style="display:inline-flex;align-items:center;justify-content:center;width:52px;;height:52px;border-radius:50%;background:white;border:2px solid #FF4D8D;box-shadow:0 8px 20px rgba(255,77,141,0.3);margin:0 6px;"><img src="/images/paperclip.png" style="width:50px;height:50px;" /></span> bên dưới để nhập link ảnh Life4Cut hôm nay giúp em nhé 💛`,
+      `👉 Bước 3: Anh/chị bấm vào nút <span style="display:inline-flex;
+      align-items:center;
+      justify-content:center;width:22px;height:22px;
+      border-radius:50%;background:white;border:2px solid #FF4D8D;box-shadow:0 8px 20px rgba(255,77,141,0.3);margin:0 10px;"><img src="/images/paperclip.png" style="width:20px;height:20px;" /></span> bên dưới để nhập link ảnh Life4Cut hôm nay giúp em nhé 💛`,
     );
   };
   const handleLife4CutUpload = async () => {
@@ -1022,28 +1023,28 @@ export default function VoucherChatbotMVP() {
   };
   return (
     <div className="h-dvh bg-slate-100 p-2 md:p-3">
-      <div className="mx-auto h-full max-w-[1600px] overflow-hidden rounded-[29px] border border-slate-800 bg-white shadow-smsoft-card">
+      <div className="mx-auto h-full max-w-[380px] overflow-hidden rounded-[29px] border border-slate-800 bg-white shadow-smsoft-card">
         <div className="grid h-full grid-cols-12">
           <aside className="hidden">
             <div className="border-b-2 border-pink-200 px-4 py-4 bg-gradient-to-r from-pink-50 to-pink-100 shadow-sm">
-              <div className="flex items-center justify-between gap-3">
+              <div className="flex items-center justify-between gap-4">
                 <div>
                   <h1 className="text-xl font-bold text-slate-900">
                     Life4Cuts Voucher Bot
                   </h1>
-                  <p className="text-sm text-slate-500">
+                  <p className="text-[11px] text-slate-500">
                     Tra voucher từ Google Sheet
                   </p>
                 </div>
                 <button
                   onClick={resetAll}
-                  className="rounded-full border px-4 py-2 text-sm hover:bg-slate-50"
+                  className="rounded-full border px-4 py-2 text-[11px] hover:bg-slate-50"
                 >
                   Mới
                 </button>
               </div>
 
-              <div className="mt-4 rounded-2xl bg-slate-100 px-3 py-2 text-sm text-slate-500">
+              <div className="mt-4 rounded-2xl bg-slate-100 px-2.5 py-1.5 text-[11px] text-slate-500">
                 Luồng: Chọn chi nhánh → Tải ảnh voucher → Nhập 10 ký tự đầu →
                 Trả full mã
               </div>
@@ -1060,7 +1061,7 @@ export default function VoucherChatbotMVP() {
                       : "hover:bg-slate-50"
                   }`}
                 >
-                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-sm font-semibold text-white">
+                  <div className="relative flex h-12 w-12 items-center justify-center rounded-full bg-slate-900 text-[11px] font-semibold text-white">
                     {item.name.slice(0, 2).toUpperCase()}
                     {item.online ? (
                       <span className="absolute bottom-0 right-0 h-3.5 w-3.5 rounded-full border-2 border-white bg-green-500" />
@@ -1070,7 +1071,7 @@ export default function VoucherChatbotMVP() {
                     <div className="truncate font-semibold text-slate-900">
                       {item.name}
                     </div>
-                    <div className="truncate text-sm text-slate-500">
+                    <div className="truncate text-[11px] text-slate-500">
                       {item.subtitle}
                     </div>
                   </div>
@@ -1080,35 +1081,30 @@ export default function VoucherChatbotMVP() {
           </aside>
 
           <main className="col-span-12 flex min-h-0 h-full overflow-hidden flex-col">
-            <div
-              className="flex items-center justify-between px-5 py-3 
-  bg-[#F6E6EA] px-4 py-4 pb-2
-  backdrop-blur-xl border-b border-white/30 shadow-md"
-            >
-              <div className="flex items-center gap-6">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
+            <div className="flex items-center w-full px-4 py-3 bg-[#F6E6EA] border-b border-white/30 shadow-sm gap-[20px]">
+              <div className="flex items-center whitespace-nowrap gap-2 flex-1">
+                <div className="w-7 h-7 rounded-full bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-md">
                   ✨
                 </div>
 
                 <div>
-                  <div className="font-medium text-[18px] text-gray-900">
+                  <div className="text-[12px] font-semibold text-gray-900">
                     Life4Cuts Voucher
                   </div>
-                  <div className="text-[14px] text-gray-700">
+                  <div className="text-[11px] text-gray-500 truncate">
                     Phản hồi tự động
                   </div>
                 </div>
               </div>
 
               {/* RIGHT */}
-              <div className="flex items-center gap-4 text-1 text-green-700 font-medium">
-                <span className="w-5 h-5 rounded-full bg-green-700 animate-pulse"></span>
-                Đang hoạt động
+              <div className="flex items-center gap-2 text-green-700 text-[11px] font-medium shrink-0">
+                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                <span>Đang hoạt động</span>
               </div>
             </div>
-
-            <div className="min-h-0 flex-1 overflow-y-auto bg-slate-50 px-4 py-4 pb-2">
-              <div className="flex w-full flex-col gap-4 pb-4 px-6">
+            <div className="min-h-0 flex-1 overflow-y-auto bg-slate-50 px-0 pb-2">
+              <div className="flex w-full flex-col gap-4 pb-3">
                 {/* VOUCHER */}
                 <div className="flex flex-col mb-4">
                   <div className="flex flex-col gap-3 items-start">
@@ -1135,9 +1131,7 @@ export default function VoucherChatbotMVP() {
                   <div
                     key={`${msg.role}-${idx}`}
                     className={`flex w-full ${
-                      msg.role === "customer"
-                        ? "justify-end pl-24 pr-4"
-                        : "justify-start pr-24 pl-4"
+                      msg.role === "customer" ? "justify-end" : "justify-start"
                     }`}
                   >
                     {/* 👇 AVATAR BOT */}
@@ -1145,44 +1139,44 @@ export default function VoucherChatbotMVP() {
                       <img
                         src="/images/bot-avatar.png"
                         alt="bot"
-                        className="w-16 h-16 rounded-full object-contain bg-white"
+                        className="w-8 h-8 mr-2 shrink-0"
                       />
                     )}
 
                     <div
-                      className={` w-fit max-w-[70%] rounded-3xl px-4 py-3 text-[14px] leading-[1.6] ${
+                      className={`inline-block max-w-[60%] rounded-2xl text-[12px] leading-[1.8] ${
                         msg.role === "bot"
                           ? "rounded-2xl bg-white text-slate-800 shadow-sm border border-slate300 rounded-bl-md font-medium"
                           : msg.role === "system"
                             ? "rounded-2xl bg-slate-100 text-slate-800 border border-slate-300 rounded-bl-md"
-                            : "bg-blue-200 from-purple-800 via-fuchsia-500 to-pink-500 shadow-md px-4 py-3 rounded-br-md"
+                            : "bg-blue-200 from-purple-800 via-fuchsia-500 to-pink-500 shadow-md px-2 py-2 rounded-br-md"
                       }`}
                     >
                       {/* Đoạn này để tin nhắn có dạng list và xuống dòng được */}
 
                       <div
-                        className={`whitespace-pre-line px-5 py-4 rounded-2xl text-[14px] leading-[1.6]
+                        className={`whitespace-pre-line px-1 py-2 rounded-xl text-[11.5px] leading-[1.3]
   shadow-md border
   ${
     msg.type === "success"
       ? "bg-green-50 text-green-900 border-green-500"
       : msg.role === "bot"
-        ? "bg-pink-100 text-slate-900 border-pink-300"
-        : "bg-blue-100 text-slate-900 border-blue-300"
+        ? "bg-pink-50 text-slate-900 border-pink-300"
+        : "bg-blue-50 text-slate-900 border-blue-100"
   }`}
                       >
                         {(() => {
                           if (msg.text.includes("Đã chọn thành công")) {
                             return (
-                              <div className="mt-2 bg-green-100 border border-green-400 rounded-xl px-4 py-3 shadow-sm max-w-fit">
+                              <div className="mt-2 bg-green-100 border border-green-400 rounded-xl inline-block px-2 py-1 shadow-sm max-w-fit">
                                 {/* HEADER */}
-                                <div className="flex items-center gap-2 text-green-700 font-semibold text-sm">
-                                  <span className="text-lg">✔</span>
-                                  Đã chọn chi nhánh
+                                <div className="flex items-center gap-1 text-green-500 font-semibold text-[11px]">
+                                  <span className="text-[10px]">✅</span>
+                                  ĐÃ CHỌN CHI NHÁNH
                                 </div>
 
                                 {/* CONTENT */}
-                                <div className="mt-1 text-sm text-green-900 break-all">
+                                <div className="mt-1 text-[10px] text-black break-all text-center">
                                   {msg.text.split("\n")[1]?.replace("🏬 ", "")}
                                 </div>
                               </div>
@@ -1193,9 +1187,9 @@ export default function VoucherChatbotMVP() {
                             return (
                               <div className="mt-2 bg-green-100 border border-green-400 rounded-xl px-4 py-3 shadow-sm max-w-fit">
                                 {/* HEADER */}
-                                <div className="flex items-center gap-2 text-green-800 font-semibold text-sm">
-                                  <span className="text-1g">✔</span>
-                                  Đã nhận link ảnh Life4Cut
+                                <div className="flex items-center gap-2 text-green-600 font-semibold text-[10px]">
+                                  <span className="text-[10px]">✅</span>
+                                  ĐÃ NHẬN LINK ẢNH LIFE4CUTS
                                 </div>
                               </div>
                             );
@@ -1205,14 +1199,14 @@ export default function VoucherChatbotMVP() {
                             return (
                               <div className="mt-2 bg-green-100 border border-green-400 rounded-xl px-4 py-3 shadow-sm max-w-fit">
                                 {/* HEADER */}
-                                <div className="flex flex-col gap-1 text-green-900 font-semibold text-sm">
-                                  <div className="text-[16px] font-semibold text-green-800">
+                                <div className="flex flex-col gap-1 text-green-900 font-semibold text-[11px]">
+                                  <div className="text-[12px] font-semibold text-green-800">
                                     <span>✅</span>
                                     ĐÃ NHẬN MÃ ID
                                   </div>
                                   <div
                                     className="mt-2 
-                text-[16px] 
+                text-[12px] 
                 font-bold 
                 text-[#e11d48] 
                 underline 
@@ -1247,7 +1241,7 @@ export default function VoucherChatbotMVP() {
                           if (msg.text.includes("Đang gửi mã về Gmail")) {
                             return (
                               <div className="mt-2 bg-green-100 border border-green-400 rounded-xl px-4 py-3 shadow-sm max-w-fit">
-                                <div className="flex items-center gap-2 text-green-700 font-semibold text-sm">
+                                <div className="flex items-center gap-2 text-green-700 font-semibold text-[11px]">
                                   <span>📩</span>
                                   Đã nhận Gmail
                                 </div>
@@ -1258,13 +1252,13 @@ export default function VoucherChatbotMVP() {
                           if (msg.text.includes("Mã voucher")) {
                             const code = <RenderMessage text={msg.text} />;
                             return (
-                              <div className="mt-2 bg-green-100 border border-green-100 rounded-xl px-8 py-4 shadow-sm inline-block">
-                                <div className="text-[16px] font-semibold text-green-800">
+                              <div className="mt-2 bg-green-100 border border-green-400 rounded-xl PX-4 py-2 shadow-sm inline-block">
+                                <div className="text-[12px] font-semibold text-green-800">
                                   ✅ XÁC NHẬN THÀNH CÔNG
                                 </div>
                                 <div
                                   className="mt-2 
-                text-[16px] 
+                text-[12px] 
                 font-bold 
                 text-[#e11d48] 
                 underline 
@@ -1273,7 +1267,7 @@ export default function VoucherChatbotMVP() {
                 underline-offset-4 
                 tracking-widest 
                 bg-yellow-200 
-                px-6 py-2 
+                px-2 py-1 
                 rounded-md 
                 inline-block
                 shadow-[0_10px_25px_rgba(0,0,0,0.25)]
@@ -1292,7 +1286,7 @@ export default function VoucherChatbotMVP() {
 
                               {/* ✅ CHECK ICON USER */}
                               {msg.role === "customer" && (
-                                <div className="text-[18px] text-gray-500 text-right mt-0">
+                                <div className="text-[12px] text-gray-500 text-right mt-0">
                                   ✔
                                 </div>
                               )}
@@ -1300,7 +1294,7 @@ export default function VoucherChatbotMVP() {
                           );
                         })()}
                       </div>
-                      <div className="mt-2 text-[14px] text-slate-500 font-semibold tracking-wide">
+                      <div className="mt-1 text-[10px] text-slate-500 font-semibold tracking-wide">
                         {msg.time}
                       </div>
                     </div>
@@ -1312,17 +1306,15 @@ export default function VoucherChatbotMVP() {
                     <button
                       onClick={resetAll}
                       className="
-  px-6 py-3 rounded-full
-
+                      fixed bottom-20 z-50
+  px-2 py-1 rounded-full
   bg-white
   !text-red-600 font-semibold
-
+  text-[14px]
   border border-red-300
   shadow-[0_8px_25px_rgba(239,68,68,0.25)]
-
   hover:bg-red-50 hover:scale-105
   active:scale-95
-
   transition-all duration-300
 "
                     >
@@ -1330,13 +1322,11 @@ export default function VoucherChatbotMVP() {
                     </button>
                   </div>
                 )}
-
                 {loading && (
                   <div className="flex justify-start mt-2">
-                    <div className="bg-pink-100 border border-pink-300 rounded-2xl px-4 py-3 shadow-sm flex items-center gap-2">
-                      <span className="text-sm text-slate-700 font-medium">
-                        ⏳ Hệ thống đang kiểm tra, vui lòng chờ trong giây
-                        lát....
+                    <div className="bg-pink-100 border border-pink-300 rounded-2xl px-2 py-1 shadow-sm flex items-center gap-2">
+                      <span className="text-[10px] text-slate-700 font-medium">
+                        ⏳ Xin vui lòng chờ trong giây lát
                       </span>
 
                       <div className="flex gap-1">
@@ -1349,7 +1339,6 @@ export default function VoucherChatbotMVP() {
                 )}
               </div>
             </div>
-
             <div
               className="
 shrink-0
@@ -1360,23 +1349,24 @@ shadow-[0_-15px_60px_rgba(255,77,141,0.25)]
 rounded-t-3xl
 "
             >
-              <div className="mx-auto max-w-3xl relative">
+              <div className="mx-auto w-full max-w-[380px] relative">
                 <div className="flex justify-center mb-2">
                   <button
                     onClick={() => setShowBranches((prev) => !prev)}
                     className="
-  fixed bottom-25 right-6 z-50
-flex h-12 w-12 items-center justify-center
+fixed bottom-20 right-4 z-[999]
+flex h-7 w-7 items-center justify-center
 rounded-full
-bg-white 
-text-pink-500
-shadow-[0_10px_25px_rgba(236,72,153,0.3)]
-border-2 border-[#FF3B7A]
-hover:scale-110 transition
+bg-white
+text-pink-600
+border-2 border-pink-500
+shadow-[0_4px_10px_rgba(236,72,153,0.15)]
+hover:bg-pink-50
+transition-all duration-200
 "
                   >
-                    <span className="text-xl font-bold text-2 text-[#FF4D8D]">
-                      {showBranches ? "x" : "≡"}
+                    <span className="text-[18px] text-pink-500 leading-none">
+                      {showBranches ? "▲" : "▼"}
                     </span>
                   </button>
                 </div>
@@ -1389,39 +1379,33 @@ hover:scale-110 transition
                     <div
                       className="
         fixed bottom-0 left-0 right-0 z-40
-
         bg-white/80 backdrop-blur-2xl
         rounded-t-3xl
-
         border-t border-white/40
         shadow-[0_-20px_60px_rgba(0,0,0,0.25)]
-
         px-4 pt-4 pb-6
-
         animate-slideUp
       "
                     >
                       {/* Handle */}
-                      <div className="flex justify-center mb-3">
-                        <div className="w-12 h-1.5 bg-slate-300 rounded-full" />
+                      <div className="flex justify-center mb-1">
+                        <div className="w-10 h-1 bg-slate-300 rounded-full" />
                       </div>
 
                       {/* Title */}
-                      <div className="text-center text-sm font-semibold text-slate-600 mb-3">
+                      <div className="text-center text-[12px] font-semibold text-slate-600 mb-3">
                         Chọn chi nhánh
                       </div>
 
                       {/* LIST */}
-                      <div className="flex flex-wrap gap-2 max-h-[220px] overflow-y-auto">
+                      <div className="flex flex-wrap gap-1 max-h-[220px] overflow-y-auto">
                         {BRANCHES.map((branch) => {
                           const isActive = selectedBranch?.id === branch.id;
-
                           return (
                             <button
                               key={branch.id}
                               onClick={() => {
                                 if (flowState === "done") return;
-
                                 setCustomerInput(branch.value);
                                 setSelectedBranch(branch);
                                 setShowBranches(false);
@@ -1431,9 +1415,8 @@ hover:scale-110 transition
                                 }
                               }}
                               className={`
-                px-4 py-2 rounded-full text-sm font-medium
+                px-4 py-2 rounded-full text-[11px] font-medium
                 transition-all
-
                 ${
                   isActive
                     ? "bg-gradient-to-r from-pink-500 to-rose-500 text-white shadow-lg"
@@ -1450,7 +1433,7 @@ hover:scale-110 transition
                   </>
                 )}
                 {isWaitingForImage && !voucherImage && (
-                  <div className="mb-3 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-700 shadow-sm">
+                  <div className="mb-3 flex items-start gap-3 rounded-2xl border border-amber-200 bg-amber-50 px-2 py-1 text-[11px] text-amber-700 shadow-sm">
                     <span className="text-lg">⚠️</span>
                     <div>
                       <div className="font-medium">Chưa có ảnh voucher</div>
@@ -1461,10 +1444,10 @@ hover:scale-110 transition
                   </div>
                 )}
                 {voucherImage && (
-                  <div className="mb-3 flex items-start gap-3 rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-700 shadow-sm">
-                    <span className="text-lg">✅</span>
+                  <div className="mb-3 flex items-start gap-1 rounded-2xl border border-emerald-200 bg-emerald-50 px-1 py-0 text-[11px] text-emerald-700 shadow-sm">
+                    <span className="text-[15px]">✅</span>
                     <div className="w-full">
-                      <div className="font-medium">Đã tải ảnh voucher</div>
+                      <div className="font-medium">ĐÃ TẢI ẢNH VOUCHER</div>
 
                       <a
                         href={voucherImage}
@@ -1498,7 +1481,7 @@ hover:scale-110 transition
                       fileInputRef.current?.click();
                     }}
                     className="
-flex h-12 w-12 items-center justify-center
+flex h-7 w-8 items-center justify-center
 rounded-full
 bg-white 
 text-pink-900
@@ -1508,7 +1491,7 @@ hover:scale-110 transition
 "
                   >
                     <Camera
-                      size={30}
+                      size={18}
                       strokeWidth={3}
                       className="text-[#FF4D8D]"
                     />
@@ -1523,18 +1506,18 @@ hover:scale-110 transition
                       }
                     }} // 👉 vẫn upload ảnh bình thường
                     className="
-flex h-12 w-12 items-center justify-center
+flex h-7 w-8 items-center justify-center
 rounded-full
 bg-white 
 text-pink-900
 shadow-[0_10px_25px_rgba(236,72,153,0.3)]
-border border-pink-500
+border-2 border-[#FF3B7A]
 hover:scale-110 transition
 "
                   >
                     {" "}
                     <Paperclip
-                      size={28}
+                      size={18}
                       strokeWidth={3}
                       className="text-[#FF4D8D]"
                     />
@@ -1542,14 +1525,12 @@ hover:scale-110 transition
 
                   <div
                     className="
-  flex-1
-  rounded-full
-  bg-white/80
-  px-5 py-3
-  shadow-inner
-  border border-white/40
-  backdrop-blur-md
-"
+ flex-2
+rounded-full
+bg-white
+px-3 py-1
+border border-pink-500
+shadow-[0_2px_6px_rgba(236,72,153,0.2)]"
                   >
                     <input
                       value={customerInput}
@@ -1569,7 +1550,7 @@ hover:scale-110 transition
                       }}
                       placeholder={
                         isWaitingForImage
-                          ? "Vui lòng tải ảnh voucher trước..." // Chỉnh sữa khung chat
+                          ? "Vui lòng tải ảnh..." // Chỉnh sữa khung chat
                           : isWaitingForToken
                             ? "Nhập thông tin tại đây..."
                             : ""
@@ -1587,17 +1568,17 @@ hover:scale-110 transition
                       flowState === "done"
                     }
                     className="
-flex h-12 w-12 items-center justify-center
+flex h-7 w-8 items-center justify-center
 rounded-full
 bg-white 
 text-pink-900
 shadow-[0_10px_25px_rgba(236,72,153,0.3)]
-border border-pink-500
+border-2 border-[#FF3B7A]
 hover:scale-110 transition
 "
                   >
                     <SendHorizonal
-                      size={28}
+                      size={18}
                       strokeWidth={3}
                       className="text-[#FF4D8D]"
                     />
@@ -1612,17 +1593,17 @@ hover:scale-110 transition
               <h2 className="text-lg font-bold text-slate-900">
                 Chi tiết hệ thống
               </h2>
-              <p className="text-sm text-slate-500">
+              <p className="text-[11px] text-slate-500">
                 Apps Script / API đã kết nối Google Sheet
               </p>
             </div>
 
             <div className="h-[calc(100%-73px)] space-y-4 overflow-auto p-4">
               <div className="rounded-3xl border p-4">
-                <div className="text-sm font-semibold text-slate-900">
+                <div className="text-[11px] font-semibold text-slate-900">
                   Luồng xử lý
                 </div>
-                <div className="mt-2 text-sm leading-6 text-slate-600">
+                <div className="mt-2 text-[11px]leading-5 text-slate-600">
                   Chọn chi nhánh → tải ảnh voucher → nhập 10 ký tự đầu → API tra
                   cứu Google Sheet → kiểm tra trạng thái voucher → trả full mã
                   nếu hợp lệ.
@@ -1630,20 +1611,20 @@ hover:scale-110 transition
               </div>
 
               <div className="rounded-3xl border p-4">
-                <div className="text-sm font-semibold text-slate-900">
+                <div className="text-[11px] font-semibold text-slate-900">
                   Kết nối dữ liệu
                 </div>
-                <div className="mt-2 text-sm leading-6 text-slate-600">
+                <div className="mt-2 text-[11px] leading-5 text-slate-600">
                   Hệ thống đang kết nối với Google Sheet để kiểm tra và phản hồi
                   mã voucher.
                 </div>
               </div>
 
               <div className="rounded-3xl border p-4">
-                <div className="text-sm font-semibold text-slate-900">
+                <div className="text-[11px] font-semibold text-slate-900">
                   Nhân viên theo dõi
                 </div>
-                <div className="mt-3 space-y-2 text-sm">
+                <div className="mt-3 space-y-2 text-[11px]">
                   {EMPLOYEES.map((item) => (
                     <button
                       key={item.id}
@@ -1662,10 +1643,10 @@ hover:scale-110 transition
               </div>
 
               <div className="rounded-3xl border p-4">
-                <div className="text-sm font-semibold text-slate-900">
+                <div className="text-[11px] font-semibold text-slate-900">
                   Chi nhánh áp dụng
                 </div>
-                <div className="mt-3 space-y-2 text-sm">
+                <div className="mt-3 space-y-2 text-[11px]">
                   {BRANCHES.map((item) => (
                     <div key={item.id} className="rounded-2xl bg-slate-50 p-3">
                       <div className="font-semibold text-slate-900">
@@ -1680,10 +1661,10 @@ hover:scale-110 transition
               </div>
 
               <div className="rounded-3xl border p-4">
-                <div className="text-sm font-semibold text-slate-900">
+                <div className="text-[11px] font-semibold text-slate-900">
                   Nhật ký giao dịch
                 </div>
-                <div className="mt-3 space-y-2 text-sm">
+                <div className="mt-3 space-y-2 text-[11px]">
                   {transactions.length === 0 ? (
                     <div className="text-slate-500">Chưa có giao dịch nào.</div>
                   ) : null}
@@ -1712,7 +1693,7 @@ hover:scale-110 transition
                         Mã trả về: {tx.voucherCode || "-"}
                       </div>
                       <div className="text-slate-600">{tx.reason}</div>
-                      <div className="mt-1 text-[11px] text-slate-400">
+                      <div className="mt-1 text-[6px] text-gray-400">
                         {tx.time}
                       </div>
                     </div>
@@ -1721,11 +1702,11 @@ hover:scale-110 transition
               </div>
 
               <div className="rounded-3xl border p-4">
-                <div className="text-sm font-semibold text-slate-900">
+                <div className="text-[11px] font-semibold text-slate-900">
                   Phiên hiện tại
                 </div>
-                <div className="mt-2 space-y-1 text-sm text-slate-600">
-                  <div className="mt-2 space-y-1 text-sm text-slate-600">
+                <div className="mt-2 space-y-1 text-[11px] text-slate-600">
+                  <div className="mt-2 space-y-1 text-[11px] text-slate-600">
                     <div>Nhân viên hỗ trợ: {currentEmployee.name}</div>
                     <div>
                       Chi nhánh đã chọn: {selectedBranch?.name || "Chưa chọn"}
